@@ -1,20 +1,25 @@
 package com.forum.forum.Controllers;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.method.support.ModelAndViewContainer;
 
 
-@RestController
+@Controller
 public class WebController {
 
     public WebController(){}
 
     @RequestMapping(value = "/home", method = RequestMethod.GET)
-    public String GetKey(){
-        return "This is home";
+    @ResponseBody
+    public String HomePage(){
+        return "This is home jaja";
+    }
+
+    @RequestMapping(value = "/battle1", method = RequestMethod.GET)
+    public String Battle_1(){
+        return "battle1.html";
     }
 
 }
