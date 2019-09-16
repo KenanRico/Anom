@@ -1,6 +1,7 @@
 package com.forum.forum.Controllers;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.web.servlet.error.ErrorAttributes;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.method.support.ModelAndViewContainer;
@@ -11,15 +12,19 @@ public class WebController {
 
     public WebController(){}
 
-    @RequestMapping(value = "/home", method = RequestMethod.GET)
-    @ResponseBody
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String HomePage(){
-        return "This is home jaja";
+        return "home.html";
     }
 
-    @RequestMapping(value = "/battle1", method = RequestMethod.GET)
-    public String Battle_1(){
-        return "battle1.html";
+    @RequestMapping(value = "/forum", method = RequestMethod.GET)
+    public String ForumPage() {
+        return "forum.html";
+    }
+
+    @RequestMapping(value = "/battle", method = RequestMethod.GET)
+    public String BattlePage(){
+        return "battle_1.html";
     }
 
 }
