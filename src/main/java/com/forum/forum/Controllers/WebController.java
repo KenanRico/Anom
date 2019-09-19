@@ -1,8 +1,10 @@
 package com.forum.forum.Controllers;
 
+import com.forum.forum.Forms.Message;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.error.ErrorAttributes;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.method.support.ModelAndViewContainer;
 
@@ -18,7 +20,14 @@ public class WebController {
     }
 
     @RequestMapping(value = "/forum", method = RequestMethod.GET)
-    public String ForumPage() {
+    public String ForumPage(Model model) {
+        model.addAttribute("message", new Message());
+        return "forum.html";
+    }
+
+    @RequestMapping(value = "/forum", method = RequestMethod.POST)
+    public String ForumSubmitMessage(@ModelAttribute Message msg) {
+        System.out.println(msg.getAuthor()+" | "+msg.getContent());
         return "forum.html";
     }
 
