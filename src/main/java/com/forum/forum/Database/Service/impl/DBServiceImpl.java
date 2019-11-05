@@ -18,9 +18,9 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @Service
 public class DBServiceImpl implements DBService {
+
 	@Autowired
 	CommentRepository cr;
-
 
 	@Override
 	public List<Comment> FindAllComments() throws NullPointerException{

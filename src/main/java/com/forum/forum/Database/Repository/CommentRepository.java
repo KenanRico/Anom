@@ -36,7 +36,7 @@ public interface CommentRepository extends CrudRepository<Comment, Integer> {
      * Select by date
      */
     public static final String SQL_SELECT_BY_DATE = "SELECT * FROM POST WHERE POSTDATE=:TIME";
-    @Query(value = SQL_SELECT_BY_AUTHOR, nativeQuery = true)
+    @Query(value = SQL_SELECT_BY_DATE, nativeQuery = true)
     List<Comment> FindAllByDate(@Param("TIME") LocalDate date);
 
 }

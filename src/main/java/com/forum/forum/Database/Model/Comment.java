@@ -25,7 +25,7 @@ public class Comment {
 	private String author;
 	@Column(name = "MESSAGE")
 	private String message;
-	@Column(name = "TIME")
+	@Column(name = "POSTDATE")
 	private LocalDate time;
 
 	public Comment(){
