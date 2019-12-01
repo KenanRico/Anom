@@ -7,9 +7,11 @@
 <body>
     <h1>Forum placeholder</h1>
     <form action="#" th:action="@{/forum}" th:object="${message}" method="post">
-        <p>Author: <input type="text" th:field="*{author}" /></p>
-        <p>Message: <input type="text" th:field="*{content}" /></p>
+        <p>Author: <input type="text" id="author" name="author" value="" /></p>
+        <p>Message: <input type="text" id="content" name="content" value="" /></p>
         <p><input type="submit" value="Post message" /></p>
     </form>
+    <pre><script src="javascript/program.js"></script></pre>
+    <script src="javascript/program.js"></script>
 </body>
 </html>

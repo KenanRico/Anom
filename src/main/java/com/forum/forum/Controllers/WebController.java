@@ -28,7 +28,7 @@ public class WebController {
 
     @RequestMapping(value = "/forum", method = RequestMethod.GET)
     public String ForumPage(Model model) {
-        model.addAttribute("message", new Message());
+        String str = "hahaha";
         return "forum.html";
     }
 
