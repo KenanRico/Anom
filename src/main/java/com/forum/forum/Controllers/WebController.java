@@ -11,6 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.method.support.ModelAndViewContainer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Controller
 public class WebController {
@@ -28,7 +31,11 @@ public class WebController {
 
     @RequestMapping(value = "/forum", method = RequestMethod.GET)
     public String ForumPage(Model model) {
-        String str = "hahaha";
+        ArrayList<String> comments = new ArrayList<String>();
+        comments.add("placeholder comment#1");
+        comments.add("placeholder comment#2");
+        comments.add("placeholder comment#3");
+        model.addAttribute("comments", comments);
         return "forum.html";
     }
 

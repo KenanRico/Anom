@@ -11,7 +11,14 @@
         <p>Message: <input type="text" id="content" name="content" value="" /></p>
         <p><input type="submit" value="Post message" /></p>
     </form>
-    <pre><script src="javascript/program.js"></script></pre>
-    <script src="javascript/program.js"></script>
+    <pre><script th:inline="javascript">
+    /*<![CDATA[*/
+        var comments = /*[[${comments}]]*/ {"failed to loat comments"};
+        for (i=0; i<comments.length; ++i){
+            console.log(comments[i]);
+            document.writeln(comments[i]);
+        }
+    /*]]>*/
+    </script></pre>
 </body>
 </html>
