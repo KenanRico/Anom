@@ -31,20 +31,17 @@ public class WebController {
 
     @RequestMapping(value = "/forum", method = RequestMethod.GET)
     public String ForumPage(Model model) {
-        ArrayList<String> comments = new ArrayList<String>();
-        comments.add("placeholder comment#1");
-        comments.add("placeholder comment#2");
-        comments.add("placeholder comment#3");
-        model.addAttribute("comments", comments);
+        ShowComments(model);
         return "forum.html";
     }
 
     @RequestMapping(value = "/forum", method = RequestMethod.POST)
-    public String ForumSubmitMessage(@ModelAttribute Message msg) {
+    public String ForumSubmitMessage(@ModelAttribute Message msg, Model model) {
         System.out.println(msg.getAuthor()+" | "+msg.getContent()+" | "+msg.getDate().toString());
         Comment new_comment = new Comment();
         new_comment.SetInfo(msg.getAuthor(), msg.getContent(), msg.getDate());
         service.WriteComment(new_comment);
+        ShowComments(model);
         return "forum.html";
     }
 
@@ -52,5 +49,18 @@ public class WebController {
     public String BattlePage(){
         return "battle_1.html";
     }
+
+    private void ShowComments(Model model){
+        List<String> authors = new ArrayList<>();
+        List<String> messages = new ArrayList<>();
+        List<Comment> comments = service.FindAllComments();
+        for(Comment comment : comments){
+            messages.add(comment.Message());
+            authors.add(comment.Author());
+        }
+        model.addAttribute("authors", authors);
+        model.addAttribute("messages", messages);
+    }
+
 
 }

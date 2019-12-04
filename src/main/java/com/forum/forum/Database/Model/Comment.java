@@ -41,5 +41,9 @@ public class Comment {
 		this.message = message;
 		this.time = time;
 	}
+
+	public String Author(){ return author; }
+
+	public String Message() { return message; }
 }
 

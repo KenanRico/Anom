@@ -21,21 +21,21 @@ public interface CommentRepository extends CrudRepository<Comment, Integer> {
 	/*
 	 * Select all
 	 */
-    public static final String SQL_SELECT_ALL_COMMENTS = "SELECT * FROM POST";
+    public static final String SQL_SELECT_ALL_COMMENTS = "SELECT * FROM post";
     @Query(value = SQL_SELECT_ALL_COMMENTS, nativeQuery = true)
     List<Comment> FindAll();
 
     /*
      * Select by author
      */
-    public static final String SQL_SELECT_BY_AUTHOR = "SELECT * FROM POST WHERE AUTHOR=:NAME";
+    public static final String SQL_SELECT_BY_AUTHOR = "SELECT * FROM post WHERE AUTHOR=:NAME";
     @Query(value = SQL_SELECT_BY_AUTHOR, nativeQuery = true)
     List<Comment> FindAllByAuthor(@Param("NAME") String author);
 
     /*
      * Select by date
      */
-    public static final String SQL_SELECT_BY_DATE = "SELECT * FROM POST WHERE POSTDATE=:TIME";
+    public static final String SQL_SELECT_BY_DATE = "SELECT * FROM post WHERE POSTDATE=:TIME";
     @Query(value = SQL_SELECT_BY_DATE, nativeQuery = true)
     List<Comment> FindAllByDate(@Param("TIME") LocalDate date);
 

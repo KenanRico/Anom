@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Ken's Forum</title>
@@ -11,14 +11,17 @@
         <p>Message: <input type="text" id="content" name="content" value="" /></p>
         <p><input type="submit" value="Post message" /></p>
     </form>
-    <pre><script th:inline="javascript">
+    <script th:inline="javascript">
     /*<![CDATA[*/
-        var comments = /*[[${comments}]]*/ {"failed to loat comments"};
-        for (i=0; i<comments.length; ++i){
-            console.log(comments[i]);
-            document.writeln(comments[i]);
+        var comments = /*[[${comments}]]*/ {"failed to load comments"};
+        var authors = /*[[${authors}]]*/ {"failed to load comments"};
+        var messages = /*[[${messages}]]*/ {"failed to load comments"};
+        for (i=0; i<authors.length; ++i){
+            console.log(authors[i]+" : "+messages[i]);
+            document.writeln(authors[i]+" : "+messages[i]);
+            document.writeln("<hr/>");
         }
     /*]]>*/
-    </script></pre>
+    </script>
 </body>
 </html>
