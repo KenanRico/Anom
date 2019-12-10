@@ -45,5 +45,7 @@ public class Comment {
 	public String Author(){ return author; }
 
 	public String Message() { return message; }
+
+	public LocalDate Date() { return time; }
 }
 

@@ -11,12 +11,12 @@ import java.util.List;
 
 public interface CommentRepository extends CrudRepository<Comment, Integer> {
 
-	/*
-	public static final String SQL_CHECK_USER_PASSWORD = "SELECT * FROM POST WHERE AUTHOR=:NAME AND PASSWORD= :PASS";
-	List<Comment> findByName(String author);
-	@Query(value = SQL_CHECK_USER_PASSWORD, nativeQuery = true)
-	Customer FindByUsernamePassword(@Param("NAME") String name, @Param("PASS") String pass);
-	*/
+    /*
+     * Write message
+     */
+    public static final String SQL_WRITE_COMMENT = "INSERT INTO `post` (AUTHOR, MESSAGE, POSTDATE) VALUES (:NAME, :COMMENT, :TIME)";
+    @Query(value = SQL_WRITE_COMMENT, nativeQuery = true)
+    void Write(@Param("NAME") String author, @Param("COMMENT") String comment, @Param("TIME") LocalDate date);
 
 	/*
 	 * Select all
