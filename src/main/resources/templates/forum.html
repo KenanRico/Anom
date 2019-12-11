@@ -16,7 +16,7 @@
         var comments = /*[[${comments}]]*/ {"failed to load comments"};
         var authors = /*[[${authors}]]*/ {"failed to load comments"};
         var messages = /*[[${messages}]]*/ {"failed to load comments"};
-        for (i=0; i<authors.length; ++i){
+        for (i=authors.length-1; i>=0; --i){
             console.log(authors[i]+" : "+messages[i]);
             document.writeln(authors[i]+" : "+messages[i]);
             document.writeln("<hr/>");

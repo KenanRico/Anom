@@ -11,13 +11,6 @@ import java.util.List;
 
 public interface CommentRepository extends CrudRepository<Comment, Integer> {
 
-    /*
-     * Write message
-     */
-    public static final String SQL_WRITE_COMMENT = "INSERT INTO `post` (AUTHOR, MESSAGE, POSTDATE) VALUES (:NAME, :COMMENT, :TIME)";
-    @Query(value = SQL_WRITE_COMMENT, nativeQuery = true)
-    void Write(@Param("NAME") String author, @Param("COMMENT") String comment, @Param("TIME") LocalDate date);
-
 	/*
 	 * Select all
 	 */
