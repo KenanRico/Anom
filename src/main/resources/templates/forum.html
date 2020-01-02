@@ -1,16 +1,36 @@
 <!DOCTYPE html>
 <html  xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Ken's Forum</title>
+	<style type="text/css">
+		body{
+			background-color: rgb(255, 202, 213);
+		}
+		#interface{
+			font-family: Impact;
+		}
+		#messages{
+			background-color: rgb(255, 222, 233);
+			border: 5px solid rgb(255, 192, 203);
+			padding: 15px;
+		}
+	</style>
 </head>
+
 <body>
+
     <h1>Forum placeholder</h1>
-    <form action="#" th:action="@{/forum}" th:object="${message}" method="post">
-        <p>Author: <input type="text" id="author" name="author" value="" /></p>
-        <p>Message: <input type="text" id="content" name="content" value="" /></p>
-        <p><input type="submit" value="Post message" /></p>
-    </form>
+	<div id="interface">
+		<form action="#" th:action="@{/forum}" th:object="${message}" method="post">
+			<p>Author: <input type="text" id="author" name="author" value="" /></p>
+			<p>Message: <input type="text" id="content" name="content" value="" /></p>
+			<p><input type="submit" value="Post message" /></p>
+		</form>
+	</div>
+
+	<div id="messages">
     <script th:inline="javascript">
     /*<![CDATA[*/
         var comments = /*[[${comments}]]*/ {"failed to load comments"};
@@ -18,10 +38,12 @@
         var messages = /*[[${messages}]]*/ {"failed to load comments"};
         for (i=authors.length-1; i>=0; --i){
             console.log(authors[i]+" : "+messages[i]);
-            document.writeln(authors[i]+" : "+messages[i]);
-            document.writeln("<hr/>");
+            document.writeln("<p>"+authors[i]+" : "+messages[i]+"<hr/>"+"</p>");
         }
     /*]]>*/
     </script>
+	</div>
+
 </body>
+
 </html>
